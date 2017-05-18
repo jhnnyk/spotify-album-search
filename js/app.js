@@ -9,6 +9,8 @@ $('form').submit(function (evt) {
   };
   const displayAlbums = (response) => {
     console.log(response);
+    $('#album-deets').fadeOut();
+    $('#albums').fadeIn();
     let albumsHTML = '';
 
     // if there are no matching albums display "no albums found"
@@ -47,11 +49,12 @@ $('#albums').on('click', '.album-details', function(event) {
   const spotifyAlbumAPI = "https://api.spotify.com/v1/albums/" + albumID;
   const displayAlbum = (album) => {
     console.log(album);
-    let albumHTML = '<div id="albumDeets"><h1>';
+    let albumHTML = '<h1>';
     albumHTML += album.name + '</h1>';
 
-    $('#albums').hide();
-    $('.main-content').append(albumHTML);
+    $('#albums').fadeOut();
+    $('#album-deets').html(albumHTML);
+    $('#album-deets').fadeIn();
   };
 
   $.getJSON(spotifyAlbumAPI, displayAlbum);
