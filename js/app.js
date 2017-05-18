@@ -25,6 +25,10 @@ $('form').submit(function (evt) {
         albumsHTML += album.name + '</span>';
         albumsHTML += '<span class="album-artist">';
         albumsHTML += album.artists[0].name + '</span>';
+        albumsHTML += '<span class="spotify-link">';
+        albumsHTML += '<a href="' + album.external_urls.spotify + '">';
+        albumsHTML += '<img src="images/spotify-icon.png" alt="';
+        albumsHTML += album.name + ' on Spotify"></a></span>';
         albumsHTML += '</li>';
       });  // end each album iteration
     }
