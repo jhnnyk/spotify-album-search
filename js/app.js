@@ -19,8 +19,9 @@ $('form').submit(function (evt) {
     } else {  // otherwise show the albums
       $.each(response.albums.items, (index, album) => {
         albumsHTML += '<li><div class="album-wrap">';
+        albumsHTML += '<a href="#" id="' + album.id + '" class="album-details">';
         albumsHTML += '<img class="album-art" src="';
-        albumsHTML += album.images[0].url + '"></div>';
+        albumsHTML += album.images[0].url + '"></a></div>';
         albumsHTML += '<span class="album-title">';
         albumsHTML += album.name + '</span>';
         albumsHTML += '<span class="album-artist">';
@@ -38,3 +39,15 @@ $('form').submit(function (evt) {
 
   $.getJSON(spotifyAPI, spotifyOptions, displayAlbums);
 });  // end form submit event
+
+// get album details
+$('#albums').on('click', '.album-details', function(event) {
+  event.preventDefault();
+  const albumID = $(this).attr('id');
+  const spotifyAlbumAPI = "https://api.spotify.com/v1/albums/" + albumID;
+  const displayAlbum = (response) => {
+    console.log(response);
+  };
+
+  $.getJSON(spotifyAlbumAPI, displayAlbum);
+});  // end album details
