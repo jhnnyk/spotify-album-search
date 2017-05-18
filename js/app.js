@@ -46,7 +46,7 @@ $('form').submit(function (evt) {
   $.getJSON(spotifyAPI, spotifyOptions, displayAlbums);
 });  // end form submit event
 
-// get album details
+// show album details page
 $('#albums').on('click', '.album-details', function(event) {
   event.preventDefault();
   const albumID = $(this).attr('id');
@@ -54,8 +54,20 @@ $('#albums').on('click', '.album-details', function(event) {
   const displayAlbum = (album) => {
     console.log(album);
     let albumHTML = '<h1>';
-    albumHTML += album.name + '</h1>';
+    albumHTML += album.name + ' (';
+    albumHTML += parseInt(album.release_date) + ')</h1>';
+    albumHTML += '<h3>' + album.artists[0].name + '</h3>';
+
     albumHTML += '<a href="#" id="back-to-results">< Search results</a>';
+    albumHTML += '<img src="' + album.images[0].url +'"';
+    albumHTML += ' alt="' + album.name + '">';
+
+    albumHTML += '<h4>track list:</h4>';
+    albumHTML += '<ol>';
+    $.each(album.tracks.items, (index, track) => {
+      albumHTML += '<li>' + track.name + '</li>';
+    });
+    albumHTML += '</ol>';
 
     $('#albums').slideUp();
     $('#album-deets').html(albumHTML);
