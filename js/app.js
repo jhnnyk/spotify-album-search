@@ -18,8 +18,13 @@ $('form').submit(function (evt) {
       albumsHTML += query + ".</li>";
     } else {  // otherwise show the albums
       $.each(response.albums.items, (index, album) => {
-        albumsHTML += '<li>';
-        albumsHTML += album.name;
+        albumsHTML += '<li><div class="album-wrap">';
+        albumsHTML += '<img class="album-art" src="';
+        albumsHTML += album.images[0].url + '"></div>';
+        albumsHTML += '<span class="album-title">';
+        albumsHTML += album.name + '</span>';
+        albumsHTML += '<span class="album-artist">';
+        albumsHTML += album.artists[0].name + '</span>';
         albumsHTML += '</li>';
       });  // end each album iteration
     }
