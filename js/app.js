@@ -1,6 +1,6 @@
 const displayResults = () => {
-  $('#album-deets').fadeOut();
-  $('#albums').fadeIn();
+  $('#album-deets').slideUp();
+  $('#albums').slideDown();
 };
 
 $('form').submit(function (evt) {
@@ -57,9 +57,9 @@ $('#albums').on('click', '.album-details', function(event) {
     albumHTML += album.name + '</h1>';
     albumHTML += '<a href="#" id="back-to-results">< Search results</a>';
 
-    $('#albums').fadeOut();
+    $('#albums').slideUp();
     $('#album-deets').html(albumHTML);
-    $('#album-deets').fadeIn();
+    $('#album-deets').slideDown();
   };
 
   $.getJSON(spotifyAlbumAPI, displayAlbum);
