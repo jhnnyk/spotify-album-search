@@ -51,6 +51,7 @@ $('#albums').on('click', '.album-details', function(event) {
     console.log(album);
     let albumHTML = '<h1>';
     albumHTML += album.name + '</h1>';
+    albumHTML += '<a href="#" id="back-to-results">< Search results</a>';
 
     $('#albums').fadeOut();
     $('#album-deets').html(albumHTML);
@@ -59,3 +60,8 @@ $('#albums').on('click', '.album-details', function(event) {
 
   $.getJSON(spotifyAlbumAPI, displayAlbum);
 });  // end album details
+
+$('.main-content').on('click', '#back-to-results', function() {
+  $('#album-deets').fadeOut();
+  $('#albums').fadeIn();
+});
