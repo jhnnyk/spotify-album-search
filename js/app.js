@@ -45,8 +45,13 @@ $('#albums').on('click', '.album-details', function(event) {
   event.preventDefault();
   const albumID = $(this).attr('id');
   const spotifyAlbumAPI = "https://api.spotify.com/v1/albums/" + albumID;
-  const displayAlbum = (response) => {
-    console.log(response);
+  const displayAlbum = (album) => {
+    console.log(album);
+    let albumHTML = '<div id="albumDeets"><h1>';
+    albumHTML += album.name + '</h1>';
+
+    $('#albums').hide();
+    $('.main-content').append(albumHTML);
   };
 
   $.getJSON(spotifyAlbumAPI, displayAlbum);
