@@ -1,3 +1,8 @@
+const displayResults = () => {
+  $('#album-deets').fadeOut();
+  $('#albums').fadeIn();
+};
+
 $('form').submit(function (evt) {
   evt.preventDefault();
   const searchField = $('#search');
@@ -9,8 +14,7 @@ $('form').submit(function (evt) {
   };
   const displayAlbums = (response) => {
     console.log(response);
-    $('#album-deets').fadeOut();
-    $('#albums').fadeIn();
+    displayResults();
     let albumsHTML = '';
 
     // if there are no matching albums display "no albums found"
@@ -61,7 +65,8 @@ $('#albums').on('click', '.album-details', function(event) {
   $.getJSON(spotifyAlbumAPI, displayAlbum);
 });  // end album details
 
-$('.main-content').on('click', '#back-to-results', function() {
-  $('#album-deets').fadeOut();
-  $('#albums').fadeIn();
+// back to search results link
+$('.main-content').on('click', '#back-to-results', function(e) {
+  e.preventDefault();
+  displayResults();
 });
