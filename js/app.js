@@ -1,6 +1,6 @@
 const displayResults = () => {
   $('#album-deets').slideUp();
-  $('#albums').slideDown();
+  $('.main-content').slideDown();
 };
 
 $('form').submit(function (evt) {
@@ -69,7 +69,7 @@ $('#albums').on('click', '.album-details', function(event) {
     });
     albumHTML += '</ol>';
 
-    $('#albums').slideUp();
+    $('.main-content').slideUp();
     $('#album-deets').html(albumHTML);
     $('#album-deets').slideDown();
   };
@@ -78,7 +78,7 @@ $('#albums').on('click', '.album-details', function(event) {
 });  // end album details
 
 // back to search results link
-$('.main-content').on('click', '#back-to-results', function(e) {
+$('body').on('click', '#back-to-results', function(e) {
   e.preventDefault();
   displayResults();
 });

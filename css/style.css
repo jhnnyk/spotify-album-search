@@ -106,18 +106,6 @@ button {
   display: block;
 }
 
-#albums li {
-  position: relative;
-}
-
-.spotify-link img {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  bottom: 0;
-  right: 5px;
-}
-
 /* album LIST COMPONENTS -------- */
 
 .no-albums,
@@ -291,4 +279,22 @@ button {
   .album-list li:nth-of-type(4n+1) {
     clear: left;
   }
+}
+
+/* ---- main page spotify link ---- */
+#albums li {
+  position: relative;
+}
+
+.spotify-link img {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+}
+
+/* ---- details page ---- */
+#album-deets h1 {
+  background-color: #4c4c4c;
 }
