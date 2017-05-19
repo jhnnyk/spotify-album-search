@@ -53,21 +53,26 @@ $('#albums').on('click', '.album-details', function(event) {
   const spotifyAlbumAPI = "https://api.spotify.com/v1/albums/" + albumID;
   const displayAlbum = (album) => {
     console.log(album);
-    let albumHTML = '<h1>';
-    albumHTML += album.name + ' (';
+    let albumHTML = '<div class="album-title-bar">';
+    albumHTML += '<div class="album-sidebar">';
+    albumHTML += '<a href="#" id="back-to-results">< Search results</a></div>';
+    albumHTML += '<div class="album-details-main">'
+    albumHTML += '<h1>' + album.name + ' (';
     albumHTML += parseInt(album.release_date) + ')</h1>';
     albumHTML += '<h3>' + album.artists[0].name + '</h3>';
+    albumHTML += '</div></div>'
 
-    albumHTML += '<a href="#" id="back-to-results">< Search results</a>';
+    albumHTML += '<div class="album-sidebar">';
     albumHTML += '<img src="' + album.images[0].url +'"';
-    albumHTML += ' alt="' + album.name + '">';
+    albumHTML += ' alt="' + album.name + '"></div>';
 
+    albumHTML += '<div class="album-details-main">'
     albumHTML += '<h4>track list:</h4>';
     albumHTML += '<ol>';
     $.each(album.tracks.items, (index, track) => {
       albumHTML += '<li>' + track.name + '</li>';
     });
-    albumHTML += '</ol>';
+    albumHTML += '</ol></div>';
 
     $('.main-content').slideUp();
     $('#album-deets').html(albumHTML);
