@@ -295,6 +295,47 @@ button {
 }
 
 /* ---- details page ---- */
-#album-deets h1 {
+.album-title-bar {
   background-color: #4c4c4c;
+  width: 100%;
+  min-height: 220px;
+}
+
+.album-sidebar {
+  width: 30%;
+  float: left;
+}
+
+.album-sidebar a {
+  color: #ccc;
+  position: relative;
+  top: 30px;
+}
+
+.album-sidebar img {
+  width: 100%;
+  border: 10px solid white;
+  position: relative;
+  top: -145px;
+}
+
+.album-details-main {
+  float: left;
+  width: 60%;
+  margin-left: 5%;
+}
+
+.album-details-main h1 {
+  color: white;
+  margin: 70px 0 0 0;
+}
+
+.album-details-main h3 {
+  color: #ccc;
+  margin-top: 10px;
+}
+
+.album-details-main ol {
+  margin: 0;
+  padding-left: 25px;
 }
