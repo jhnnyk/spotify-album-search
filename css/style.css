@@ -337,6 +337,10 @@ button {
   margin: 70px 0 0 0;
 }
 
+.album-details-main h1 a {
+  color: white;
+}
+
 .album-details-main h3 {
   color: #ccc;
   margin-top: 10px;

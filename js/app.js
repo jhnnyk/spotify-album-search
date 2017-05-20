@@ -58,8 +58,9 @@ $('#albums').on('click', '.album-details', function(event) {
     albumHTML += '<div class="album-sidebar">';
     albumHTML += '<a href="#" id="back-to-results">< Search results</a></div>';
     albumHTML += '<div class="album-details-main">'
-    albumHTML += '<h1>' + album.name + ' (';
-    albumHTML += parseInt(album.release_date) + ')</h1>';
+    albumHTML += '<h1><a href="' + album.external_urls.spotify + '">';
+    albumHTML += album.name + ' (';
+    albumHTML += parseInt(album.release_date) + ')</a></h1>';
     albumHTML += '<h3>' + album.artists[0].name + '</h3>';
     albumHTML += '</div></div></div>'
 
