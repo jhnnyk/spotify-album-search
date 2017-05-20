@@ -64,8 +64,13 @@ $('#albums').on('click', '.album-details', function(event) {
     albumHTML += '</div></div></div>'
 
     albumHTML += '<div class="inner"><div class="album-sidebar">';
+    albumHTML += '<a href="' + album.external_urls.spotify + '">';
     albumHTML += '<img src="' + album.images[0].url +'"';
-    albumHTML += ' alt="' + album.name + '"></div>';
+    albumHTML += ' alt="' + album.name + '"></a>';
+    albumHTML += '<span class="spotify-link">';
+    albumHTML += '<a href="' + album.external_urls.spotify + '">';
+    albumHTML += '<img src="images/spotify-icon.png" alt="';
+    albumHTML += album.name + ' on Spotify"></a></span></div>';
 
     albumHTML += '<div class="album-details-main">'
     albumHTML += '<h4>track list:</h4>';
